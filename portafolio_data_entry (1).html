@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-[#e8f0e9] text-slate-800">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Data Entry - Grove Street Edition</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        grove: {
+                            50: '#f0f7f2',
+                            100: '#dbece0',
+                            200: '#b9d9c2',
+                            300: '#8fbe9c',
+                            400: '#5e9d70',
+                            500: '#3d8150',
+                            600: '#2d683d',
+                            700: '#255332',
+                            800: '#1e432a',
+                            900: '#1b3b22',
+                            950: '#0d2012',
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0d2012;
+        }
+        .font-street {
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -0.03em;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #e8f0e9; border-radius: 99px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2d683d; border-radius: 99px; }
+    </style>
+</head>
+<body class="min-h-full flex items-center justify-center p-2 sm:p-6 md:p-10 antialiased">
+
+    <!-- CANVAS CONTENEDOR TIPO MARCO BLANCO (Exacto a la imagen de referencia) -->
+    <div class="max-w-6xl w-full bg-[#f8faf8] rounded-[2.5rem] sm:rounded-[3.5rem] p-4 sm:p-8 shadow-2xl border-4 border-[#1b3b22] relative flex flex-col gap-6 overflow-hidden">
+        
+        <!-- 1. BARRA SUPERIOR DE NAVEGACIÓN EN PÍLDORA FLOTANTE -->
+        <header class="flex items-center justify-between gap-2 w-full">
+            <!-- Icono / Logo -->
+            <div class="flex items-center gap-2 bg-[#1b3b22] text-grove-100 px-4 py-2 rounded-full border border-grove-800 shadow-sm">
+                <i data-lucide="database" class="w-4 h-4 text-grove-300"></i>
+                <span class="font-street font-bold text-xs tracking-wider text-grove-200 uppercase">GROVE DATA</span>
+            </div>
+
+            <!-- Menú Navegación Flotante Estilo Píldora (Centro) -->
+            <nav class="bg-white px-2 py-1.5 rounded-full border-2 border-grove-900/10 shadow-md flex items-center gap-1 sm:gap-2">
+                <button onclick="switchTab('dirty')" id="nav-dirty" class="px-4 py-1.5 rounded-full text-xs font-bold transition bg-grove-900 text-grove-100 shadow-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span>1. Base Sucia</span>
+                </button>
+                <button onclick="switchTab('clean')" id="nav-clean" class="px-4 py-1.5 rounded-full text-xs font-bold transition text-grove-900 hover:bg-grove-100 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-grove-500"></span>
+                    <span>2. Base Limpia</span>
+                </button>
+                <button onclick="switchTab('report')" id="nav-report" class="px-4 py-1.5 rounded-full text-xs font-bold transition text-grove-900 hover:bg-grove-100 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-grove-700"></span>
+                    <span>3. Informe</span>
+                </button>
+            </nav>
+
+            <!-- Botones de Contacto Directo en Header -->
+            <div class="hidden sm:flex items-center gap-2">
+                <a href="https://t.me/3782441851" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-[#229ED9]/10 text-[#1b3b22] hover:bg-[#229ED9] hover:text-white px-3 py-2 rounded-full text-xs font-bold transition border border-[#229ED9]/30 shadow-sm">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="mailto:guilleolivera555@gmail.com" class="flex items-center gap-1.5 bg-[#1b3b22] hover:bg-grove-800 text-grove-100 px-3.5 py-2 rounded-full text-xs font-bold transition border border-grove-700 shadow-sm">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-grove-300"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- 2. HERO PRINCIPAL BENTO (Simula la tarjeta grande ilustrada con bordes orgánicos) -->
+        <section class="bg-[#1b3b22] text-white rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 relative overflow-hidden border-2 border-grove-950 flex flex-col justify-between min-h-[220px] shadow-lg">
+            <!-- Textura / Sombra urbana de fondo -->
+            <div class="absolute -right-16 -bottom-16 w-80 h-80 bg-grove-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex items-center justify-between relative z-10">
+                <span class="px-3 py-1 bg-grove-950/80 rounded-full border border-grove-700 text-[10px] font-mono text-grove-300 uppercase tracking-widest">
+                    Guillermo Olivera &bull; Data Entry Specialist
+                </span>
+                <span class="text-xs text-grove-200 font-bold uppercase tracking-wider flex items-center gap-1">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-grove-400"></i>
+                    Disponible para proyectos
+                </span>
+            </div>
+
+            <!-- Título Estilo 'Asian Street Food / SunAkkA' adaptado a Grove Data -->
+            <div class="my-6 relative z-10">
+                <span class="text-xs sm:text-sm font-bold text-grove-300 uppercase tracking-widest block mb-1">
+                    PROYECTO INTEGRADO DE LIMPIEZA
+                </span>
+                <h1 class="font-street font-extrabold text-4xl sm:text-6xl text-white uppercase leading-none tracking-tight">
+                    DATA <span class="text-grove-400">CLEANING</span>
+                </h1>
+                <p class="text-xs sm:text-sm text-grove-100/90 max-w-xl mt-2 leading-relaxed">
+                    Transformación de 100 registros desordenados de inventario en una base estandarizada sin duplicados ni errores de formato.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 relative z-10 pt-2 border-t border-grove-800/80">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 bg-grove-950/90 text-grove-300 rounded-full text-[11px] font-bold border border-grove-700">100 Filas Iniciales</span>
+                    <span class="px-3 py-1 bg-grove-900 text-amber-300 rounded-full text-[11px] font-bold border border-grove-700">12 Duplicados Borrados</span>
+                    <span class="px-3 py-1 bg-grove-400 text-grove-950 rounded-full text-[11px] font-extrabold">88 Registros Únicos</span>
+                </div>
+                <!-- Badge de contacto directo -->
+                <div class="flex items-center gap-2 text-xs text-grove-200">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-grove-300"></i>
+                    <span class="font-mono text-[11px]">guilleolivera555@gmail.com</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. GRID BENTO INFERIOR -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- BLOQUE IZQUIERDO: RESUMEN Y BOTONES DE CONTACTO -->
+            <div class="md:col-span-4 bg-white rounded-[2rem] p-6 border-2 border-grove-900/10 flex flex-col justify-between space-y-4 shadow-sm">
+                <div>
+                    <h3 class="font-street font-bold text-xl text-grove-950 uppercase mb-2 flex items-center gap-2">
+                        <i data-lucide="user-check" class="w-5 h-5 text-grove-600"></i>
+                        MI CONTACTO
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        ¿Tenés planillas por ordenar o necesitás asistencia en carga de datos? Escribime directamente para coordinar.
+                    </p>
+                </div>
+
+                <!-- Tarjetas de Acceso Directo -->
+                <div class="space-y-2">
+                    <a href="https://t.me/3782441851" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-grove-50 hover:bg-grove-100 text-grove-950 rounded-2xl border border-grove-200 flex items-center justify-between text-xs font-bold transition">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4 text-[#229ED9]"></i>
+                            <span>Telegram</span>
+                        </div>
+                        <span class="text-[10px] text-slate-500 font-mono">3782441851</span>
+                    </a>
+
+                    <div class="w-full p-2.5 bg-grove-50 rounded-2xl border border-grove-200 flex items-center justify-between gap-2 text-xs">
+                        <div class="flex items-center gap-2 overflow-hidden">
+                            <i data-lucide="mail" class="w-4 h-4 text-grove-700 shrink-0"></i>
+                            <span class="font-mono text-[11px] truncate text-slate-700">guilleolivera555@gmail.com</span>
+                        </div>
+                        <button onclick="copyEmail()" class="px-2.5 py-1 bg-white hover:bg-grove-200 text-grove-900 border border-grove-300 rounded-xl font-bold text-[10px] transition shrink-0">
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+
+                <a href="mailto:guilleolivera555@gmail.com" class="w-full py-3 bg-[#1b3b22] hover:bg-grove-800 text-grove-100 rounded-full font-bold text-xs transition uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm">
+                    <i data-lucide="mail" class="w-4 h-4 text-grove-300"></i>
+                    <span>ENVIAR CORREO DIRECTO</span>
+                </a>
+            </div>
+
+            <!-- BLOQUE DERECHO COMPLETO: VISOR DE TABLAS AMPLIO -->
+            <div class="md:col-span-8 bg-white rounded-[2rem] p-6 border-2 border-grove-900/10 flex flex-col justify-between space-y-4 shadow-sm min-h-[320px]">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <h3 class="font-street font-bold text-base text-grove-950 uppercase flex items-center gap-2">
+                        <i data-lucide="table" class="w-4 h-4 text-grove-600"></i>
+                        VISOR DE DATOS
+                    </h3>
+                    <span id="view-indicator" class="text-[10px] font-extrabold px-2.5 py-0.5 bg-grove-800 text-grove-100 rounded-full">
+                        Base Sucia
+                    </span>
+                </div>
+
+                <!-- Contenedor dinámico de tabla o reporte ampliado -->
+                <div class="custom-scrollbar overflow-x-auto max-h-[300px] min-h-[220px] rounded-xl border border-slate-200 w-full">
+                    <!-- CONTENIDO PESTAÑA 1: BASE SUCIA -->
+                    <table id="table-dirty" class="w-full text-left text-xs">
+                        <thead class="bg-[#1b3b22] text-grove-200 uppercase font-street sticky top-0">
+                            <tr>
+                                <th class="p-3">Producto</th>
+                                <th class="p-3">Precio</th>
+                                <th class="p-3">Estado</th>
+                                <th class="p-3">Observación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-dirty" class="divide-y divide-slate-100">
+                            <!-- JS populated -->
+                        </tbody>
+                    </table>
+
+                    <!-- CONTENIDO PESTAÑA 2: BASE LIMPIA -->
+                    <table id="table-clean" class="w-full text-left text-xs hidden">
+                        <thead class="bg-[#1b3b22] text-grove-200 uppercase font-street sticky top-0">
+                            <tr>
+                                <th class="p-3">Producto</th>
+                                <th class="p-3">Precio</th>
+                                <th class="p-3">Stock</th>
+                                <th class="p-3">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-clean" class="divide-y divide-slate-100">
+                            <!-- JS populated -->
+                        </tbody>
+                    </table>
+
+                    <!-- CONTENIDO PESTAÑA 3: INFORME RESUMIDO -->
+                    <div id="view-report" class="p-5 bg-grove-50 space-y-3 hidden text-xs">
+                        <div class="p-3 bg-white rounded-xl border border-grove-200 font-mono flex justify-between items-center">
+                            <span class="text-grove-800 font-bold">Total Analizado:</span>
+                            <span class="font-extrabold text-slate-800">100 Registros</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-grove-200 font-mono flex justify-between items-center">
+                            <span class="text-grove-700 font-bold">Duplicados Borrados:</span>
+                            <span class="font-extrabold text-amber-700">12 Filas</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-grove-200 font-mono flex justify-between items-center">
+                            <span class="text-grove-900 font-bold">Registros Limpios:</span>
+                            <span class="font-extrabold text-grove-700">88 Únicos (68 Disp. / 20 Agot.)</span>
+                        </div>
+                        <button onclick="copyReportText()" class="w-full py-2.5 bg-grove-900 text-grove-100 rounded-xl font-bold text-xs hover:bg-grove-800 transition flex items-center justify-center gap-2">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            Copiar Resumen Ejecutivo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+                    <span>Muestra interactiva de 100 datos</span>
+                    <button onclick="switchTab('clean')" class="text-grove-700 font-bold hover:underline flex items-center gap-1">
+                        <span>Ver base limpia</span>
+                        <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER INTEGRADO AL MARCO -->
+        <footer class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs font-semibold text-slate-500 gap-2">
+            <span>Portafolio Data Entry & Control de Calidad</span>
+            <span class="font-street text-grove-900">Grove Street Data Studio &copy; 2026</span>
+        </footer>
+
+    </div>
+
+    <!-- Toast de Notificación -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-[#1b3b22] text-grove-200 border-2 border-grove-500 px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2 text-xs font-bold translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <i data-lucide="check-circle" class="w-4 h-4 text-grove-400"></i>
+        <span id="toast-msg">Copiado al portapapeles</span>
+    </div>
+
+    <!-- Script de Datos y Control -->
+    <script>
+        const dirtyData = [
+            { name: "  auriculares bluetooth pro", price: "$ 15000", status: "Disponible", obs: "Espacios extra, duplicado", dup: true },
+            { name: "TECLADO MECANICO RGB", price: "18500.00", status: "Disponible", obs: "Mayúsculas sostenidas", dup: false },
+            { name: "  mouse inalambrico", price: "$12.500", status: "Agotado", obs: "Espacios al inicio", dup: false },
+            { name: "auriculares bluetooth pro", price: "$ 15000", status: "Disponible", obs: "DUPLICADO REGISTRO #1", dup: true },
+            { name: "MONITOR 24 PULGADAS", price: "120000", status: "Disponible", obs: "Categoría mal tipeada", dup: false },
+            { name: "  silla gamer ergonómica", price: "$85000,00", status: "Disponible", obs: "Precio con coma", dup: false },
+            { name: "Silla Gamer Ergonómica", price: "85000", status: "Disponible", obs: "DUPLICADO REGISTRO #6", dup: true }
+        ];
+
+        const cleanData = [
+            { name: "Auriculares Bluetooth Pro", price: 15000, stock: 15, status: "Disponible" },
+            { name: "Teclado Mecánico RGB", price: 18500, stock: 8, status: "Disponible" },
+            { name: "Mouse Inalámbrico", price: 12500, stock: 0, status: "Agotado" },
+            { name: "Monitor 24 Pulgadas", price: 120000, stock: 5, status: "Disponible" },
+            { name: "Silla Gamer Ergonómica", price: 85000, stock: 3, status: "Disponible" },
+            { name: "Escritorio De Madera", price: 45000, stock: 0, status: "Agotado" },
+            { name: "Lámpara LED Escritorio", price: 8500, stock: 12, status: "Disponible" }
+        ];
+
+        function renderTables() {
+            // Render Dirty
+            const tbodyDirty = document.getElementById('tbody-dirty');
+            tbodyDirty.innerHTML = dirtyData.map(item => `
+                <tr class="${item.dup ? 'bg-grove-100/90 font-medium border-l-2 border-grove-600' : ''}">
+                    <td class="p-2 font-mono">${escapeHtml(item.name)}</td>
+                    <td class="p-2 font-mono text-grove-800 font-bold">${escapeHtml(item.price)}</td>
+                    <td class="p-2">${escapeHtml(item.status)}</td>
+                    <td class="p-2 font-semibold ${item.dup ? 'text-grove-900 font-bold' : 'text-slate-500'}">${escapeHtml(item.obs)}</td>
+                </tr>
+            `).join('');
+
+            // Render Clean
+            const tbodyClean = document.getElementById('tbody-clean');
+            tbodyClean.innerHTML = cleanData.map(item => `
+                <tr class="hover:bg-grove-50">
+                    <td class="p-2 font-bold text-slate-800">${escapeHtml(item.name)}</td>
+                    <td class="p-2 font-mono text-grove-700 font-bold">$ ${item.price.toLocaleString('es-AR')}</td>
+                    <td class="p-2 font-mono">${item.stock}</td>
+                    <td class="p-2">
+                        ${item.status === 'Disponible' 
+                            ? '<span class="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-grove-200 text-grove-900">Disponible</span>'
+                            : '<span class="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-slate-200 text-slate-700">Agotado</span>'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function switchTab(tab) {
+            const tDirty = document.getElementById('table-dirty');
+            const tClean = document.getElementById('table-clean');
+            const vReport = document.getElementById('view-report');
+            const indicator = document.getElementById('view-indicator');
+
+            const btnDirty = document.getElementById('nav-dirty');
+            const btnClean = document.getElementById('nav-clean');
+            const btnReport = document.getElementById('nav-report');
+
+            // Reset buttons
+            [btnDirty, btnClean, btnReport].forEach(b => {
+                b.className = "px-4 py-1.5 rounded-full text-xs font-bold transition text-grove-900 hover:bg-grove-100 flex items-center gap-1.5";
+            });
+
+            tDirty.classList.add('hidden');
+            tClean.classList.add('hidden');
+            vReport.classList.add('hidden');
+
+            if (tab === 'dirty') {
+                tDirty.classList.remove('hidden');
+                btnDirty.className = "px-4 py-1.5 rounded-full text-xs font-bold transition bg-grove-900 text-grove-100 shadow-sm flex items-center gap-1.5";
+                indicator.className = "text-[10px] font-extrabold px-2.5 py-0.5 bg-grove-800 text-grove-100 rounded-full";
+                indicator.innerText = "Base Sucia";
+            } else if (tab === 'clean') {
+                tClean.classList.remove('hidden');
+                btnClean.className = "px-4 py-1.5 rounded-full text-xs font-bold transition bg-grove-700 text-white shadow-sm flex items-center gap-1.5";
+                indicator.className = "text-[10px] font-extrabold px-2.5 py-0.5 bg-grove-200 text-grove-950 rounded-full";
+                indicator.innerText = "Base Limpia";
+            } else if (tab === 'report') {
+                vReport.classList.remove('hidden');
+                btnReport.className = "px-4 py-1.5 rounded-full text-xs font-bold transition bg-[#1b3b22] text-grove-100 shadow-sm flex items-center gap-1.5";
+                indicator.className = "text-[10px] font-extrabold px-2.5 py-0.5 bg-grove-300 text-grove-950 rounded-full";
+                indicator.innerText = "Informe";
+            }
+        }
+
+        function copyReportText() {
+            const txt = `INFORME DE LIMPIEZA DE DATOS (GROVE DATA)
+• Total registros: 100
+• Duplicados eliminados: 12
+• Formatos corregidos: 45
+• Registros limpios entregados: 88 (68 Disponibles, 20 Agotados)
+Contacto: Guillermo Olivera (guilleolivera555@gmail.com / Telegram: 3782441851)`;
+
+            navigator.clipboard.writeText(txt).then(() => {
+                showToast("Informe y contacto copiados");
+            });
+        }
+
+        function copyEmail() {
+            navigator.clipboard.writeText("guilleolivera555@gmail.com").then(() => {
+                showToast("Email copiado al portapapeles");
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2500);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        window.onload = function() {
+            lucide.createIcons();
+            renderTables();
+        };
+    </script>
+</body>
+</html>
